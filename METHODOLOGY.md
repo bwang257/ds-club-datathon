@@ -116,15 +116,14 @@ Then I ran conformal calibration. The raw quantile intervals for XGBoost were to
 - **Takeaways:** XGBoost gives the best single guess for known brands. The Bayesian model does better on unseen brands and gives tighter ranges.
 	- Also see:
 		- Since the BHM prices a product in layers (start with the title, then adjust for category, then brand, etc.), we can read its parameters. Analysis of the Bayesian model's parameters reveals that, once we know what a product is from its title, the brand still shifts its price by about ±55%, twice as much as its category (±27%).
-- High-volume brands are systematically the cheaper ones:
+- High-volume brands are systematically the cheaper ones. Correlation between a brand's average monthly sales and its average price (both log):
 
-| brand's average (across its listings) | price effect per SD | 89% interval |
+| brands | raw r | within category r |
 |---|---|---|
-| **monthly sales** | **x0.90** | x0.84 to x0.97 |
-| review count | x0.96 | x0.90 to x1.03 (no clear effect) |
-| rating | x1.02 | x0.97 to x1.08 (no clear effect) |
+| all brands (n=448) | −0.56 | −0.49 |
+| brands with 5+ priced products (n=204) | −0.72 | −0.59 |
 
-  A brand whose products sell one standard deviation more than average prices ~10% lower (e.g. Amazon Basics, Anker, UGREEN). This is an association: cheap products also sell more.
+  "Within category" compares each product to others in its category first, so the result isn't just "batteries are cheap and sell a lot". For example, Amazon Basics and UGREEN sell well above their categories' average and price well below; Sony is the reverse. This is an association: cheap products also sell more.
 
 
 

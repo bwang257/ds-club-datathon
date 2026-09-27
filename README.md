@@ -15,7 +15,7 @@ categories) from a 10-day Amazon search scrape.
 | 80% interval width, unseen brand | x10.3 | **x6.7** |
 
 - XGBoost gives the best single guess for known brands. The Bayesian model does better on unseen brands and gives tighter honest ranges (a $100 guess means "likely $70-144").
-- After the title, brand moves price about ±55%, twice as much as category (±27%). High-volume brands are the cheaper ones.
+- After the title, brand moves price about ±55%, twice as much as category (±27%). High-volume brands are the cheaper ones (brand-level r = −0.56).
 
 ## Contents
 
