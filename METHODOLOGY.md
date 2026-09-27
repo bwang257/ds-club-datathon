@@ -7,31 +7,29 @@ Data was a scrape of Amazon search results: 42.7k rows collected on 6 days betwe
 
 Raw columns (16), all stored as text:
 
-| column | example | used? |
-|---|---|---|
-| `Title` | "BOYA BOYALINK 2 Wireless Lavalier Microphone for iPhone…" | yes: product ID, brand, category, embeddings |
-| `Rating` | "4.6 out of 5 stars" | yes → number |
-| `Number_of_reviews` | "2,457" | yes → number |
-| `bought_in_last_month` | "300+ bought in past month" | yes → bin lower bound |
-| `Current/discounted_price` | "89.68" (28% missing) | yes: shelf price, the model target |
-| `Listed_price` | "$159.00" or "No Discount" | no |
-| `Price_on_variant` | "basic variant price: $162.24" | no (a different variant's price) |
-| `is_best_seller` | "Best Seller", "Amazon's", "Limited time deal" | yes: Amazon's Choice flag |
-| `is_sponsored` | "Sponsored" / "Organic" | yes |
-| `is_couponed` | "Save 15% with coupon" / "No Coupon" | yes: has coupon |
-| `buy_box_availability` | "Add to cart" or blank | yes: in stock |
-| `delivery_details` | "Delivery Mon, Sep 1" | no |
-| `sustainability_badges` | "Carbon impact", "Small Business" (92% blank) | no |
-| `image_url` | product photo link | no (used only in the labelling tool) |
-| `product_url` | product link (13% one-time ad tokens) | no |
-| `collected_at` | "21-08-2025 11:14" | yes: dedup (latest scrape) and scrape-count checks |
-
+| column                     |
+| -------------------------- |
+| `Title`                    |
+| `Rating`                   |
+| `Number_of_reviews`        |
+| `bought_in_last_month`     |
+| `Current/discounted_price` |
+| `Listed_price`             |
+| `Price_on_variant`         |
+| `is_best_seller`           |
+| `is_sponsored`             |
+| `is_couponed`              |
+| `buy_box_availability`     |
+| `delivery_details`         |
+| `sustainability_badges`    |
+| `image_url`                |
+| `product_url`              |
+| `collected_at`             |
 
 ## Cleaning (`1_data_cleaning`)
 - 962 duplicate rows dropped.
 - Converted rating, review count and price strings to numbers with regex ("4.6 out of 5 stars", "$1,299").
 - Used the shelf price (`current_price`). Coupons are temporary, so they aren't part of the price.
-- The `is_best_seller` field mixes Best Seller, Amazon's Choice and deal badges → pulled out the Amazon's Choice flag.
 - Last-month sales are stored as the lower bound of the bin (300+ → 300). In-stock listings with no sales badge (<50) are coded as 0.
 - Left other missing entries missing, and dropped columns the analysis doesn't use.
 - Kept one row per product. The scraper recaptured some listings many times: the top 1% of products are 37% of rows.
