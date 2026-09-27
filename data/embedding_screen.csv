@@ -1,0 +1,21 @@
+model,dims,split,predictor,R2,x_error,within_x2,band_acc,embed_seconds,device,smoke
+all-MiniLM-L6-v2,384,family,xgboost,0.8221,1.4061,0.8079,0.7259,122.6,cpu,False
+all-MiniLM-L6-v2,384,family,text score alone,0.7659,1.492,0.7517,0.685,122.6,cpu,False
+all-MiniLM-L6-v2,384,brand,xgboost,0.5901,1.822,0.5694,0.5316,122.6,cpu,False
+all-MiniLM-L6-v2,384,brand,text score alone,0.6084,1.7181,0.6109,0.5817,122.6,cpu,False
+BAAI/bge-base-en-v1.5,768,family,xgboost,0.8293,1.398,0.8213,0.7319,736.0,cpu,False
+BAAI/bge-base-en-v1.5,768,family,text score alone,0.7815,1.4731,0.7638,0.6951,736.0,cpu,False
+BAAI/bge-base-en-v1.5,768,brand,xgboost,0.6166,1.7945,0.5817,0.5418,736.0,cpu,False
+BAAI/bge-base-en-v1.5,768,brand,text score alone,0.6434,1.6705,0.6339,0.5946,736.0,cpu,False
+intfloat/e5-base-v2,768,family,xgboost,0.8274,1.3878,0.816,0.7359,737.3,cpu,False
+intfloat/e5-base-v2,768,family,text score alone,0.7775,1.4728,0.7644,0.6961,737.3,cpu,False
+intfloat/e5-base-v2,768,brand,xgboost,0.6235,1.7748,0.591,0.5526,737.3,cpu,False
+intfloat/e5-base-v2,768,brand,text score alone,0.6286,1.7035,0.6248,0.5877,737.3,cpu,False
+thenlper/gte-base,768,family,xgboost,0.8324,1.3894,0.8191,0.7386,673.5,cpu,False
+thenlper/gte-base,768,family,text score alone,0.783,1.4755,0.7671,0.694,673.5,cpu,False
+thenlper/gte-base,768,brand,xgboost,0.625,1.7804,0.5848,0.5507,673.5,cpu,False
+thenlper/gte-base,768,brand,text score alone,0.6455,1.6642,0.6337,0.598,673.5,cpu,False
+BAAI/bge-large-en-v1.5,1024,family,xgboost,0.8349,1.3796,0.8227,0.7354,2423.2,cpu,False
+BAAI/bge-large-en-v1.5,1024,family,text score alone,0.7855,1.4647,0.7728,0.6975,2423.2,cpu,False
+BAAI/bge-large-en-v1.5,1024,brand,xgboost,0.6215,1.7946,0.5898,0.5476,2423.2,cpu,False
+BAAI/bge-large-en-v1.5,1024,brand,text score alone,0.6526,1.6756,0.6385,0.6033,2423.2,cpu,False
